@@ -41,3 +41,7 @@ export const renderTask = (task) => {
 
   elements.cards.insertAdjacentHTML("beforeend", markup);
 };
+
+// export const pushToArr = task => {
+
+// }

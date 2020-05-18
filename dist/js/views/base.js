@@ -4,6 +4,6 @@ export const elements = {
   taskTitle: document.querySelector(".card__heading--add"),
   textarea: document.querySelector(".card__input"),
   addBtn: document.querySelector(".card__btn"),
-  doneTask: document.querySelector(".card__icon--done"),
   cards: document.querySelector(".cards"),
+  card: document.querySelector(".card"),
 };
