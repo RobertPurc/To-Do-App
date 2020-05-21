@@ -1,24 +1,42 @@
 import uniqid from "uniqid";
 
-export default class AddTask {
+export default class Task {
   constructor() {
-    this.allTasks = [];
+    this.taskArr = [];
+    // this.title = title;
+    // this.text = text;
   }
 
-  addOneTask(title, text) {
-    const task = {
+  taskObj(title, text) {
+    const oneTask = {
       id: uniqid(),
       title,
       text,
     };
-
-    this.allTasks.push(task);
-    return task;
-  }
-
-  deleteTask(id) {
-    //search for the index in Alltasks and then match id to the entered id
-    const index = this.allTasks.findIndex((el) => el.id === id);
-    this.allTasks.splice(index, 1);
+    this.taskArr.push(oneTask);
+    return oneTask;
   }
 }
+
+// export default class AddTask {
+//   constructor() {
+//     this.tasks = [];
+//   }
+
+//   addOneTask(title, text) {
+//     const task = {
+//       id: uniqid(),
+//       title,
+//       text,
+//     };
+
+//     this.tasks.push(task);
+//     return task;
+//   }
+
+//   deleteTask(id) {
+//     //search for the index in Alltasks and then match id to the entered id
+//     const index = this.tasks.findIndex((el) => el.id === id);
+//     this.tasks.splice(index, 1);
+//   }
+// }
