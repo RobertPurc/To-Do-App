@@ -10,16 +10,15 @@ const state = {};
 //
 state.task = new Task();
 const controlAddTasks = () => {
+  // console.log(title);
   const title = elements.title.value;
   const text = elements.text.value;
-  const currTask = state.task.taskObj(title, text);
-  // console.log(title);
-
   if (!title) {
     alert("uzupełnij tytuł");
   } else if (!text) {
     alert("uzupełnij text");
   } else {
+    const currTask = state.task.taskObj(title, text);
     taskView.renderTask(currTask);
   }
 };
@@ -38,7 +37,7 @@ const getMatchesBtn = () => {
 
       if (e.target.matches(".card__icon--done")) {
         console.log("kliknęto w ptaszek");
-
+        state.task.deleteTask(id);
         taskView.deleteTask(id);
       }
     })
