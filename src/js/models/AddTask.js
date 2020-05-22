@@ -16,6 +16,12 @@ export default class Task {
     this.taskArr.push(oneTask);
     return oneTask;
   }
+
+  deleteTask(id) {
+    //search for the index in Alltasks and then match id to the entered id
+    const index = this.taskArr.findIndex((el) => el.id === id);
+    this.tasks.splice(index, 1);
+  }
 }
 
 // export default class AddTask {

@@ -9,21 +9,45 @@ const state = {};
 // const allTasks = [];
 //
 state.task = new Task();
-const controlTasks = () => {
+const controlAddTasks = () => {
   const title = elements.title.value;
   const text = elements.text.value;
-  console.log(title);
+  const currTask = state.task.taskObj(title, text);
+  // console.log(title);
 
   if (!title) {
     alert("uzupełnij tytuł");
   } else if (!text) {
     alert("uzupełnij text");
   } else {
-    taskView.renderTask(state.task.taskObj(title, text));
+    taskView.renderTask(currTask);
   }
 };
 
+const getMatchesBtn = () => {
+  // const doneBtn = document.querySelectorAll(".card__icon--done");
+
+  const cards = document.querySelectorAll(".card");
+  const cardsArr = Array.from(cards);
+  //array from all present cards
+
+  cardsArr.forEach((i) =>
+    i.addEventListener("click", (e) => {
+      const id = e.target.closest(".card").dataset.itemid;
+      console.log(id);
+
+      if (e.target.matches(".card__icon--done")) {
+        console.log("kliknęto w ptaszek");
+
+        taskView.deleteTask(id);
+      }
+    })
+  );
+  //for each element i add listener which gives each id of current cliced card
+};
+
 elements.addBtn.addEventListener("click", () => {
-  controlTasks();
+  controlAddTasks();
+  getMatchesBtn();
   console.log(state.task);
 });
