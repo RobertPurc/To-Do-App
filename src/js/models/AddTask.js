@@ -14,6 +14,9 @@ export default class Task {
       text,
     };
     this.taskArr.push(oneTask);
+    //save data in localstorage
+    this.persistData();
+
     return oneTask;
   }
 
@@ -21,5 +24,17 @@ export default class Task {
     //search for the index in Alltasks and then match id to the entered id
     const index = this.taskArr.findIndex((el) => el.id === id);
     this.taskArr.splice(index, 1);
+    //save data in localstorage
+    this.persistData();
+  }
+
+  persistData() {
+    localStorage.setItem("AllTasks", JSON.stringify(this.taskArr));
+  }
+
+  readStorage() {
+    const storage = JSON.parse(localStorage.getItem("AllTasks"));
+    //restore saved tasks from localStorage
+    if (storage) this.taskArr = storage;
   }
 }

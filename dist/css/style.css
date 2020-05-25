@@ -223,6 +223,11 @@ a {
   cursor: pointer;
   transform: translateY(-10px);
 }
+.card__done {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .card__icon--done {
   /* margin-right: 2rem; */
   fill: #00aaaa;

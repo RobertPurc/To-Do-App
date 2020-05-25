@@ -5,6 +5,7 @@ export const renderTask = (task) => {
     <div class="card" data-itemid=${task.id}>
             <header class="card__header">
               <h2 class="card__heading">${task.title}</h2>
+              <button class="card__done">
               <svg
                 class="svg card__icon card__icon--done"
                 version="1.1"
@@ -27,15 +28,13 @@ export const renderTask = (task) => {
                   </g>
                 </g>
               </svg>
+              </button>
             </header>
             <article class="card__article">
               <p class="card__paragraph">
               ${task.text}
               </p>
             </article>
-            <footer class="card__footer">
-              <a href="" class="card__btn">Read More &rarr;</a>
-            </footer>
           </div> 
     `;
   elements.allCards.insertAdjacentHTML("beforeend", markup);

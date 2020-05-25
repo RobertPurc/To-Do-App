@@ -249,7 +249,11 @@ a {
     cursor: pointer;
     transform: translateY(-10px);
   }
-
+  &__done {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
   &__icon--done {
     // margin-right: 2rem;
     fill: $done;
